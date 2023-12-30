@@ -1,0 +1,55 @@
+﻿@using Database
+@page "/disease"
+@attribute [StreamRendering]
+
+<PageTitle>@_pageTile</PageTitle>
+
+<h3>@_pageTile</h3>
+
+<div class="row">&nbsp;</div>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header"><b>@_pageTile</b></div>
+            <div class="card-body">
+                @if (diseases == null)
+                {
+                    <p><em>Loading Data...</em></p>
+                }
+                else
+                {
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Part</th>
+                                <th>Color</th>
+                                <th>Appearance</th>
+                                <th>Wheat Disease</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(DiseaseModel disease in diseases)
+                            {
+                                <tr>
+                                    <td>@disease.Id</td>
+                                    <td>@disease.Part</td>
+                                    <td>@disease.Color</td>
+                                    <td>@disease.Appearance</td>
+                                    <td>@disease.WheatDisease</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+            <div class="card-footer">
+                <b>Card Footer</b>
+            </div>
+        </div>
+    </div>
+
+</div>
+

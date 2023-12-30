@@ -1,10 +1,12 @@
 using AwaisAamirNiaz.Blazor.Components;
+using AwaisAamirNiaz.Blazor.Database;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
+builder.Services.Configure<ConnectionStringModel>(builder.Configuration.GetSection("ConnectionStrings"));
 
 var app = builder.Build();
 
